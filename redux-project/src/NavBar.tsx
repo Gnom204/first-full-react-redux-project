@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { CounterState, store } from "./store";
+import { useEffect, useState } from "react";
+import { store } from "./store";
 import { NavLink } from "react-router-dom";
 
 export function NavBar() {
-  const [arrayOfCounters, setArrayOfCounters] = useState([]);
-  const [counters, setCounters] = useState([]);
+  const [arrayOfCounters, setArrayOfCounters] = useState<string[]>([]);
+
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
-      const counterss: Record<CounterId, CounterState> =
-        store.getState().counters;
-      setCounters(counterss);
-
-      setArrayOfCounters(Object.keys(counterss));
+      const initialCounters = store.getState().counters;
+      setArrayOfCounters(Object.keys(initialCounters));
     });
     return unsubscribe;
   }, []);

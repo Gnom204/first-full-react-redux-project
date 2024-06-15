@@ -2,9 +2,7 @@ import { useEffect, useReducer } from "react";
 
 import "./App.css";
 import { CounterId, DecrementAction, IncrementAction, store } from "./store";
-import { NavLink } from "react-router-dom";
 import Form from "./Form";
-import Layout from "./Layout";
 import NavBar from "./NavBar";
 
 function App() {

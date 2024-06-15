@@ -1,6 +1,8 @@
-import React from "react";
 import { Counter } from "./App";
-function Counters({ counters }) {
+type State = {
+  counters: string[];
+};
+function Counters({ counters }: State) {
   return (
     <div>
       {counters.map((el: string) => {
